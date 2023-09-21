@@ -1,4 +1,4 @@
-package com.skwzz.sample.controller;
+package com.skwzz.domain.sample.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
