@@ -2,6 +2,7 @@ package com.skwzz.domain.post.service;
 
 import com.skwzz.domain.post.dto.CreatePostDto;
 import com.skwzz.domain.post.dto.ReadPostDto;
+import com.skwzz.domain.post.dto.UpdatePostDto;
 import com.skwzz.domain.post.entity.Post;
 import com.skwzz.domain.post.mapper.PostMapper;
 import com.skwzz.domain.post.repository.PostRepository;
@@ -40,7 +41,16 @@ public class PostService {
     }
 
     @Transactional
+    public ReadPostDto updatePost(Long postId, UpdatePostDto updatePostDto) throws Exception {
+        if(!postId.equals(updatePostDto.getId())) throw new Exception();
+        Post post = postRepository.findById(postId).orElseThrow(() -> new NoSuchElementException());
+        post.changePostInfo(updatePostDto);
+        return PostMapper.toDto(post);
+    }
+
+    @Transactional
     public void deletePost(Long postId) {
         postRepository.deleteById(postId);
     }
+
 }
