@@ -1,6 +1,7 @@
 package com.skwzz.domain.post.entity;
 
 import com.skwzz.domain.post.dto.UpdatePostDto;
+import com.skwzz.global.model.BaseEntity;
 import lombok.*;
 import org.apache.commons.lang3.StringUtils;
 
@@ -13,7 +14,7 @@ import javax.persistence.Id;
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-public class Post {
+public class Post extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

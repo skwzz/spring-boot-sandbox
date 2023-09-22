@@ -21,6 +21,8 @@ public class PostMapper {
                 .id(post.getId())
                 .title(post.getTitle())
                 .contents(post.getContents())
+                .createdDate(post.getCreatedDate())
+                .modifiedDate(post.getModifiedDate())
                 .build();
     }
 
