@@ -1,8 +1,6 @@
 package com.skwzz.global.response;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 @Getter
@@ -11,6 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 public class ApiResponse<T> {
     private boolean result;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private T body;
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private String errorCode;
