@@ -8,6 +8,7 @@ import com.skwzz.domain.post.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -28,7 +29,7 @@ public class PostController {
     }
 
     @PostMapping
-    public ReadPostDto createPost(@RequestBody CreatePostDto createPostDto){
+    public ReadPostDto createPost(@RequestBody @Valid CreatePostDto createPostDto){
         return postService.createPost(createPostDto);
     }
 
