@@ -17,6 +17,7 @@ spring:
     properties:
       hibernate:
         format_sql: true
+        highlight_sql: true
     defer-datasource-initialization: true
   sql:
     init:
@@ -25,4 +26,5 @@ spring:
 logging:
   level:
     org.hibernate.SQL: debug
-    org.hibernate.type: trace
+    org.hibernate.type.descriptor.sql: trace
+    root: info
