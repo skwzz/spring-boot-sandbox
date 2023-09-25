@@ -14,8 +14,8 @@ public class ExceptionAdvice {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     protected ErrorResponse methodArgumentNotValidExceptionHandler(MethodArgumentNotValidException e){
         FieldError fieldError = e.getBindingResult().getFieldErrors().get(0);
-        String fieldName = fieldError.getField();
         String errorMessage = fieldError.getDefaultMessage();
+        log.error(e.toString(), e);
         return ErrorResponse.builder()
                 .errorCode("INVALID_PARAMETER")
                 .errorMessage(errorMessage)
