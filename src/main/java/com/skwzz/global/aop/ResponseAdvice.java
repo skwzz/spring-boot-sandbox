@@ -22,7 +22,6 @@ public class ResponseAdvice implements ResponseBodyAdvice<Object> {
 
     @Override
     public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType, Class<? extends HttpMessageConverter<?>> selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
-        log.info("--- RESPONSE ADVICE ---");
         if(body instanceof ErrorResponse){
             return ApiResponse.<Object>builder()
                     .result(false)
