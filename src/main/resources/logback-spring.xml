@@ -20,7 +20,7 @@
             <level>DEBUG</level>
         </filter>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>logs/archive/app.%d{yyyy-MM-dd}_%i.log</fileNamePattern>
+            <fileNamePattern>${LOG_DIR}/archive/app.%d{yyyy-MM-dd}_%i.log</fileNamePattern>
             <maxFileSize>1KB</maxFileSize> <!-- 로그파일 최대 크기 이 이상 넘어가면 archive에 쪼개져서 저장됨-->
             <maxHistory>30</maxHistory> <!-- 로그파일 최대 보관 주기 (day) 자동 삭제됨 -->
         </rollingPolicy>
@@ -40,7 +40,7 @@
             <onMismatch>DENY</onMismatch>
         </filter>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>logs/archive/error.%d{yyyy-MM-dd}_%i.log</fileNamePattern>
+            <fileNamePattern>${LOG_DIR}/error/archive/error.%d{yyyy-MM-dd}_%i.log</fileNamePattern>
             <maxFileSize>1KB</maxFileSize> <!-- 로그파일 최대 크기 이 이상 넘어가면 archive에 쪼개져서 저장됨-->
             <maxHistory>30</maxHistory> <!-- 로그파일 최대 보관 주기 (day) 자동 삭제됨 -->
         </rollingPolicy>
