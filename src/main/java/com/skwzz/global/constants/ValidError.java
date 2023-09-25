@@ -1,6 +1,7 @@
 package com.skwzz.global.constants;
 
 public class ValidError {
+    // TODO: enum 으로 교체
     /*
      * #는 필수값 입니다.
      */
