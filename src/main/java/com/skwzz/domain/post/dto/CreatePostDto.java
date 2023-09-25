@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
+import com.skwzz.global.constants.ValidError;
 
 @Getter
 @Setter
@@ -13,9 +14,9 @@ import javax.validation.constraints.NotBlank;
 @NoArgsConstructor
 public class CreatePostDto {
 
-    @NotBlank
+    @NotBlank(message = ValidError.REQUIRED_TITLE)
     private String title;
 
-    @NotBlank
+    @NotBlank(message = ValidError.REQUIRED_CONTENTS)
     private String contents;
 }

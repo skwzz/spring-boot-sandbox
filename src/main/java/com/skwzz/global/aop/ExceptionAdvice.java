@@ -17,8 +17,8 @@ public class ExceptionAdvice {
         String fieldName = fieldError.getField();
         String errorMessage = fieldError.getDefaultMessage();
         return ErrorResponse.builder()
-                .errorCode(e.getClass().getName())
-                .errorMessage(fieldName + " : "+errorMessage)
+                .errorCode("INVALID_PARAMETER")
+                .errorMessage(errorMessage)
                 .build();
     }
 
