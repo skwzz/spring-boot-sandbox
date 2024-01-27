@@ -6,6 +6,7 @@ import com.skwzz.domain.post.dto.UpdatePostDto;
 import com.skwzz.domain.post.entity.Post;
 import com.skwzz.domain.post.mapper.PostMapper;
 import com.skwzz.domain.post.repository.PostRepository;
+import com.skwzz.global.constants.ErrorMessage;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,7 +27,7 @@ public class PostService {
     }
 
     public ReadPostDto readPost(Long postId) {
-        Post post = postRepository.findById(postId).orElseThrow(() -> new NoSuchElementException());
+        Post post = postRepository.findById(postId).orElseThrow(() -> new NoSuchElementException(ErrorMessage.NOT_FOUND_POST));
         return PostMapper.toDto(post);
     }
 
@@ -43,7 +44,7 @@ public class PostService {
     @Transactional
     public ReadPostDto updatePost(Long postId, UpdatePostDto updatePostDto) throws Exception {
         if(!postId.equals(updatePostDto.getId())) throw new Exception();
-        Post post = postRepository.findById(postId).orElseThrow(() -> new NoSuchElementException());
+        Post post = postRepository.findById(postId).orElseThrow(() -> new NoSuchElementException(ErrorMessage.NOT_FOUND_POST));
         post.changePostInfo(updatePostDto);
         return PostMapper.toDto(post);
     }

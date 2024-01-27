@@ -19,13 +19,13 @@ public class PostController {
     private final PostService postService;
 
     @GetMapping
-    public List<ReadPostDto> readAllPost(){
-        return postService.readAllPost();
+    public ReadPostDto.Response readAllPost(){
+        return new ReadPostDto.Response(postService.readAllPost());
     }
 
     @GetMapping("/{postId}")
-    public ReadPostDto readPost(@PathVariable Long postId){
-        return postService.readPost(postId);
+    public ReadPostDto.Response readPost(@PathVariable Long postId){
+        return new ReadPostDto.Response(postService.readPost(postId));
     }
 
     @PostMapping

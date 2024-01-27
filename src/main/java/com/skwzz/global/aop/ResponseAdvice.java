@@ -15,6 +15,10 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 @RestControllerAdvice
 public class ResponseAdvice implements ResponseBodyAdvice<Object> {
 
+    private static final String SUCCESS = "success";
+    private static final String FAIL = "fail";
+    private static final String ERROR = "error";
+
     @Override
     public boolean supports(MethodParameter returnType, Class<? extends HttpMessageConverter<?>> converterType) {
         return true;
@@ -23,16 +27,9 @@ public class ResponseAdvice implements ResponseBodyAdvice<Object> {
     @Override
     public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType, Class<? extends HttpMessageConverter<?>> selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
         if(body instanceof ErrorResponse){
-            return ApiResponse.<Object>builder()
-                    .result(false)
-                    .errorCode(((ErrorResponse) body).getErrorCode())
-                    .errorMessage(((ErrorResponse) body).getErrorMessage())
-                    .build();
+            return ApiResponse.error(((ErrorResponse) body).getErrorMessage());
         }else{
-            return ApiResponse.<Object>builder()
-                    .result(true)
-                    .body(body)
-                    .build();
+            return ApiResponse.ok(body);
         }
     }
 }

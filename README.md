@@ -5,7 +5,7 @@
 ### 공통 응답 <a id="common_response"></a>
 ```json
 {
-  "result": true,
+  "status": "success",
   "body": {
     "exampleKey": "exampleValue"
   }
@@ -13,9 +13,7 @@
 ```
 ```json
 {
-    "result": false,
-    "body": null,
-    "errorCode": "API_ERROR",
-    "errorMessage": "API 요청이 실패하였습니다."
+    "status": "fail",
+    "errorMessage": "API 실패 메세지"
 }
 ```
