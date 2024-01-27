@@ -15,10 +15,6 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 @RestControllerAdvice
 public class ResponseAdvice implements ResponseBodyAdvice<Object> {
 
-    private static final String SUCCESS = "success";
-    private static final String FAIL = "fail";
-    private static final String ERROR = "error";
-
     @Override
     public boolean supports(MethodParameter returnType, Class<? extends HttpMessageConverter<?>> converterType) {
         return true;
